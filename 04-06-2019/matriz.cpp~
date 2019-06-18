@@ -1,0 +1,47 @@
+#include "matriz.h"
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+using std::cout;
+using std::endl;
+
+TYPE*
+Matrix::operator[](const int &l)
+{
+  return &matrix[l*order];
+}
+
+void
+randomize()
+{
+  srand(time(NULL));
+}
+
+void
+Matrix::randomFill()
+{
+  randomize();
+  TYPE *aux = &matrix[0];
+  for (int i=0; i < order*order; i++)
+    *(aux++) = rand() % 666;
+}
+
+void
+Matrix::show()
+{
+  for (int i=0; i<order; i++){
+    for (int j=0; j<order; j++)
+      cout << matrix[i*order+j] << "\t";
+    cout << endl;
+  }
+  cout <<endl;
+}
+
+void
+Matrix::add(const Matrix &mx)const
+{
+  for (int i=0; i<order; i++){
+    for (int j=0; j<order; j++)
+      (*this)[i][j] +=mx[i][j];
+  }
+}

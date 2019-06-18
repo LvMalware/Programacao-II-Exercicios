@@ -1,0 +1,14 @@
+#ifndef _COMPLEX_H
+#define _COMPLEX_H 1
+
+class Complex
+{
+	public:
+		Complex(float a, float b);
+		Complex(float b);
+		Complex();
+	~private:
+
+};
+
+#endif
